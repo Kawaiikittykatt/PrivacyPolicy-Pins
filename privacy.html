@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — ImageSaver Extension</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #0c0101;
+      --surface:  #130303;
+      --border:   #2a0808;
+      --crimson:  #7d1212;
+      --red-soft: #c49898;
+      --text:     #f0e8e8;
+      --muted:    #8a5f5f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 16px;
+      min-height: 100vh;
+    }
+
+    /* Subtle grain overlay for depth */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Warm glow in the top corner */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -120px;
+      left: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(125,18,18,0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
+      margin-bottom: 56px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--red-soft);
+      margin-bottom: 14px;
+      padding-left: 16px;
+      border-left: 2px solid var(--crimson);
+    }
+
+    p {
+      color: #c8b8b8;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul li {
+      color: #c8b8b8;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--crimson);
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+
+    .contact-card p {
+      margin: 0;
+    }
+
+    a {
+      color: var(--red-soft);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    a:hover { border-color: var(--red-soft); }
+
+    /* Footer */
+    .footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="header">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p>From: Elisabeth Johnson</p>
+      <!-- Update this date whenever you make changes to the policy -->
+      <p class="last-updated">Last updated: <!-- ADD DATE e.g. June 1, 2025 --></p>
+    </div>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        ImageSaver is a Chrome browser extension that allows users to save images
+        from web pages and optionally create Pinterest pins from those images.
+        This policy explains what data the extension handles, how it is used,
+        and your rights as a user.
+      </p>
+      <p>
+        We do not operate any servers. All data stays in your browser unless
+        you explicitly choose to send it to Pinterest via the Pinterest API.
+      </p>
+    </section>
+
+    <section>
+      <h2>Data We Handle</h2>
+      <p>When you use ImageSaver, the extension temporarily processes:</p>
+      <ul>
+        <li>The URL of images <b><i>you</i></b> click on web pages</li>
+        <li>The URL of the web page the image was found on</li>
+        <li>Your Pinterest OAuth access token (only if you connect Pinterest)</li>
+        <li>Pinterest board names fetched from your account (only if you connect Pinterest)</li>
+        <li>Pin descriptions and tags you type into the extension</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How We Use Your Data</h2>
+      <ul>
+        <li>Image and page URLs are stored locally in your browser using <code>chrome.storage.local</code> so the last captured image persists when you reopen the panel</li>
+        <li>Your Pinterest OAuth token is stored locally so you do not have to log in on every use</li>
+        <li>Image URLs, page URLs, descriptions, and tags are sent directly to Pinterest's API only when you click "Pin It!" — they are not sent anywhere else</li>
+        <li>We do not collect, transmit, or store any data on our own servers</li>
+        <li>We do not use any analytics, tracking, or advertising tools</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Third Party Services</h2>
+      <p>
+        This extension integrates with the <strong>Pinterest API</strong> to create pins on your behalf.
+        When you connect your Pinterest account, you are subject to Pinterest's own
+        <a href="https://policy.pinterest.com/en/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+        and <a href="https://policy.pinterest.com/en/terms-of-service" target="_blank" rel="noopener">Terms of Service</a>.
+        ImageSaver only requests the minimum permissions needed: <code>pins:write</code> and <code>boards:read</code>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Data Retention & Deletion</h2>
+      <ul>
+        <li>All locally stored data (saved image, page URL, Pinterest token) can be cleared at any time by clicking the ↻ refresh button in the extension</li>
+        <li>You can fully remove all extension data by uninstalling ImageSaver from Chrome</li>
+        <li>You can revoke Pinterest access at any time by going to your <a href="https://www.pinterest.com/settings/security" target="_blank" rel="noopener">Pinterest Security Settings</a> and removing the ImageSaver app</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, you can reach us at:</p>
+      <div class="contact-card">
+        <!-- Replace with your actual contact email -->
+        <p>email:  <a href="mailto:YOUR_EMAIL_HERE">yennsbiggestfan@gmail.com</a></p>
+        <p>github: <a href="https://github.com/Kawaiikittykatt" target="_blank" rel="noopener">Kawaiikittykatt</a></p>
+    </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      PhotoUploadPins Extension &nbsp;·&nbsp; Lissy's Personal Shopper
+    </div>
+
+  </div>
+</body>
+</html>
